@@ -255,16 +255,23 @@ def run(config_map,
   Raises:
     ValueError: if required flags are missing or invalid.
   """
-  if not FLAGS.run_dir:
-    raise ValueError('Invalid run directory: %s' % FLAGS.run_dir)
-  run_dir = os.path.expanduser(FLAGS.run_dir)
+#   if not FLAGS.run_dir:
+#     raise ValueError('Invalid run directory: %s' % FLAGS.run_dir)
+  run_dir = os.path.expanduser('../../results/')
   train_dir = os.path.join(run_dir, 'train')
 
-  if FLAGS.mode not in ['train', 'eval']:
-    raise ValueError('Invalid mode: %s' % FLAGS.mode)
+#   if FLAGS.mode not in ['train', 'eval']:
+#     raise ValueError('Invalid mode: %s' % FLAGS.mode)
 
-  if FLAGS.config not in config_map:
-    raise ValueError('Invalid config: %s' % FLAGS.config)
+#   if FLAGS.config not in config_map:
+#     raise ValueError('Invalid config: %s' % FLAGS.config)
+
+# Define FLAGS inside #***
+  FLAGS.config = 'cat-mel_2bar_small'
+  FLAGS.mode = 'train'
+  FLAGS.examples_path = '../../results/preprocess_result/notesequences.tfrecord'
+# Define FLAGS inside #***
+        
   config = config_map[FLAGS.config]
   if FLAGS.hparams:
     config.hparams.parse(FLAGS.hparams)
