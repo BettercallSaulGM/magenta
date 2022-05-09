@@ -238,21 +238,21 @@ def convert_directory(root_dir, output_file, recursive=False):
 def main(unused_argv):
   tf.logging.set_verbosity(FLAGS.log)
 
-  if not FLAGS.input_dir:
-    tf.logging.fatal('--input_dir required')
-    return
-  if not FLAGS.output_file:
-    tf.logging.fatal('--output_file required')
-    return
+#   if not FLAGS.input_dir:
+#     tf.logging.fatal('--input_dir required')
+#     return
+#   if not FLAGS.output_file:
+#     tf.logging.fatal('--output_file required')
+#     return
 
-  input_dir = os.path.expanduser(FLAGS.input_dir)
-  output_file = os.path.expanduser(FLAGS.output_file)
+  input_dir = os.path.expanduser("../../data/groove-v.1.0.0-midionly")
+  output_file = os.path.expanduser("../../results/notesequences.tfrecord")
   output_dir = os.path.dirname(output_file)
 
   if output_dir:
     tf.gfile.MakeDirs(output_dir)
 
-  convert_directory(input_dir, output_file, FLAGS.recursive)
+  convert_directory(input_dir, output_file, True)
 
 
 def console_entry_point():
