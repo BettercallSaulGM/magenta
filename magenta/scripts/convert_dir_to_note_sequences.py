@@ -246,7 +246,7 @@ def main(unused_argv):
 #     return
 
   input_dir = os.path.expanduser("../../data/groove-v.1.0.0-midionly")
-  output_file = os.path.expanduser("../../results/notesequences.tfrecord")
+  output_file = os.path.expanduser("../../results/preprocess_result/notesequences.tfrecord")
   output_dir = os.path.dirname(output_file)
 
   if output_dir:
